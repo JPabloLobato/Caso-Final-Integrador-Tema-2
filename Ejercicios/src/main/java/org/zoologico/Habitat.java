@@ -12,7 +12,7 @@ public abstract class Habitat {
     }
 public abstract void monitorearCondiciones();
 }
-class HabitatAcuatico extends Habitat {
+class HabitatAcuatico  extends Habitat {
     public HabitatAcuatico(double temperatura, double humedad, boolean limpieza) {
         super(temperatura, humedad, limpieza);
     }
