@@ -3,7 +3,7 @@ import java.util.Scanner;
 import MainMenus.MenuTrabajador;
 import MainMenus.MenuVisitante;
 public class MenuPrincipal {
-    //menu trabajador o visitante
+    //menu principal, que lleva a los menus trabajador o visitante
     public static void main (String[] args) {
         Scanner scanner = new Scanner (System.in);
         while (true) {
