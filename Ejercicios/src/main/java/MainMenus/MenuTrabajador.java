@@ -141,7 +141,46 @@ public class MenuTrabajador {
                     }
                     break;
                 case 3:
-                    // Código para recursos zoológico
+                    System.out.println("Bienvenido a la administración de recursos, escoja una opción: ");
+                    System.out.println("1. Agregar medicina, alimento o equipamiento.");
+                    System.out.println("2. Quitar medicina, alimento o equipamiento.");
+                    System.out.println("3. Mirar un pedido.");
+                    System.out.println("4. Mirar inventario zoologico.");
+                    System.out.println("5. Mirar probedores zoologico.");
+                    System.out.println("6. Salir");
+                    System.out.println("Bienvenido a la administración de recursos, escoja una opción: ");
+                    System.out.println("1. Agregar medicina, alimento o equipamiento.");
+                    System.out.println("2. Quitar medicina, alimento o equipamiento.");
+                    System.out.println("3. Mirar un pedido.");
+                    System.out.println("4. Mirar inventario zoológico.");
+                    System.out.println("5. Mirar proveedores zoológico.");
+                    System.out.println("6. Salir");
+
+                    int opcionRecursos = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (opcionRecursos) {
+                        case 1:
+                            agregarRecurso();
+                            break;
+                        case 2:
+                            quitarRecurso();
+                            break;
+                        case 3:
+                            mirarPedido();
+                            break;
+                        case 4:
+                            mirarInventarioZoologico();
+                            break;
+                        case 5:
+                            mirarProveedoresZoologico();
+                            break;
+                        case 6:
+
+                            break;
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
                     break;
                 case 4:
                     // Código para mantenimiento y seguridad

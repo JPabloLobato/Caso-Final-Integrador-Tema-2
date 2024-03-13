@@ -1,9 +1,11 @@
 package MainMenus;
-import org.visitantes.GuiaVirtual;
-import org.visitantes.Quiosco;
+import org.visitantes.*;
 
 import java.util.Scanner;
 public class MenuVisitante {
+    public static void guiavirtual(Interes interes) {
+        interes.realizarTour();
+    }
     public static void menuVisitante() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -19,8 +21,7 @@ public class MenuVisitante {
                     System.out.println("1. Realizar un tour para niños");
                     System.out.println("2. Realizar un tour para aficionados a las aves");
                     System.out.println("3. Realizar un tour para amantes de los mamíferos");
-                    System.out.println("4. Salir")
-                    int opcion = scanner.nextInt();
+                    System.out.println("4. Salir");
                     scanner.nextLine();
                     Interes interes;
                     switch (opcion) {
@@ -44,6 +45,7 @@ public class MenuVisitante {
                     }
                 case 2:
                     Quiosco quiosco = new Quiosco();
+                    quiosco.mostrarMenu();
                     break;
                 case 3:
                     System.out.println("Gracias por visitar el zoologico");
