@@ -1,5 +1,5 @@
 package MainMenus;
-import org.visitantes.*;
+import ejercicios.visitantes.*;
 
 import java.util.Scanner;
 public class MenuVisitante {

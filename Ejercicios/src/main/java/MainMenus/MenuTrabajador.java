@@ -1,18 +1,22 @@
 package MainMenus;
 
-import org.zoologico.*;
+import ejercicios.trabajadores.AdministracionRecursos.ManejoRecursos;
+import ejercicios.trabajadores.CuidadoAnimales.Animales;
+import ejercicios.trabajadores.CuidadoAnimales.Elefante;
+import ejercicios.trabajadores.CuidadoAnimales.Leon;
+import ejercicios.trabajadores.CuidadoAnimales.Tigre;
+import ejercicios.trabajadores.GestionHabitats.Habitat;
+import ejercicios.trabajadores.GestionHabitats.HabitatAcuatico;
+import ejercicios.trabajadores.GestionHabitats.HabitatAviario;
+import ejercicios.trabajadores.GestionHabitats.HabitatTerrestre;
+import ejercicios.trabajadores.MantenimientoYSeguridad.Evento;
+import ejercicios.trabajadores.MantenimientoYSeguridad.Mantenimiento;
+import ejercicios.trabajadores.MantenimientoYSeguridad.Seguridad;
+import ejercicios.trabajadores.MantenimientoYSeguridad.Tarea;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import org.zoologico.Pedido;
-import org.zoologico.ManejoRecursos;
-import org.zoologico.Inventario;
-import org.zoologico.Proveedores;
-import org.zoologico.Mantenimiento;
-import org.zoologico.Seguridad;
-import org.zoologico.Tarea;
-import org.zoologico.Eventos;
 
 public class MenuTrabajador {
     public static void menuTrabajador() {
@@ -258,7 +262,7 @@ public class MenuTrabajador {
                             String ubicacion = scanner.nextLine();
                             System.out.println("Ingrese la hora del evento:");
                             String hora = scanner.nextLine();
-                            seguridad.agregarEvento(new Eventos(descripcion, ubicacion, hora));
+                            seguridad.agregarEvento(new Evento(descripcion, ubicacion, hora));
                             break;
                         case 5:
                             seguridad.mostrarEventos();
