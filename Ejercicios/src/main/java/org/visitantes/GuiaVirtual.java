@@ -1,4 +1,4 @@
 package org.visitantes;
 
-public class Visitantes {
+public class GuiaVirtual {
 }

@@ -35,4 +35,10 @@ public class Animales {
     public String getEstadoComportamiento() {
         return estadoComportamiento;
     }
+    public String getNombre() {
+        return nombre;
+    }
+    public String getEspecie() {
+        return especie;
+    }
 }

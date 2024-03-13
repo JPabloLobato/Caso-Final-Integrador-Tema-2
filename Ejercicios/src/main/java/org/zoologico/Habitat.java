@@ -5,6 +5,7 @@ public class Habitat {
     protected double humedad;
     protected boolean limpio;
     private String tipo;
+    private String nombre;
 
     public Habitat(String tipo) {
         this.tipo = tipo;
@@ -23,6 +24,12 @@ public class Habitat {
 
     public void setLimpio(boolean limpio) {
         this.limpio = limpio;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    public String getTipo() {
+        return this.tipo;
     }
 
     public void monitorear() {
