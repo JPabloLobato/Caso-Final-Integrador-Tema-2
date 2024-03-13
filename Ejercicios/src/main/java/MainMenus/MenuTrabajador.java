@@ -1,17 +1,18 @@
 package MainMenus;
 
-import org.zoologico.Habitat;
-import org.zoologico.HabitatAcuatico;
-import org.zoologico.HabitatAviario;
-import org.zoologico.HabitatTerrestre;
-import org.zoologico.Animales;
-import org.zoologico.Leon;
-import org.zoologico.Elefante;
-import org.zoologico.Tigre;
+import org.zoologico.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import org.zoologico.Pedido;
+import org.zoologico.ManejoRecursos;
+import org.zoologico.Inventario;
+import org.zoologico.Proveedores;
+import org.zoologico.Mantenimiento;
+import org.zoologico.Seguridad;
+import org.zoologico.Tarea;
+import org.zoologico.Eventos;
 
 public class MenuTrabajador {
     public static void menuTrabajador() {
@@ -141,49 +142,131 @@ public class MenuTrabajador {
                     }
                     break;
                 case 3:
+                    ManejoRecursos manejoRecursos = new ManejoRecursos();
                     System.out.println("Bienvenido a la administración de recursos, escoja una opción: ");
-                    System.out.println("1. Agregar medicina, alimento o equipamiento.");
-                    System.out.println("2. Quitar medicina, alimento o equipamiento.");
-                    System.out.println("3. Mirar un pedido.");
-                    System.out.println("4. Mirar inventario zoologico.");
-                    System.out.println("5. Mirar probedores zoologico.");
-                    System.out.println("6. Salir");
-                    System.out.println("Bienvenido a la administración de recursos, escoja una opción: ");
-                    System.out.println("1. Agregar medicina, alimento o equipamiento.");
-                    System.out.println("2. Quitar medicina, alimento o equipamiento.");
-                    System.out.println("3. Mirar un pedido.");
-                    System.out.println("4. Mirar inventario zoológico.");
-                    System.out.println("5. Mirar proveedores zoológico.");
-                    System.out.println("6. Salir");
-
+                    System.out.println("1. Agregar pedido.");
+                    System.out.println("2. Quitar pedido.");
+                    System.out.println("3. Mostrar pedido.");
+                    System.out.println("4. Agregar al inventario.");
+                    System.out.println("5. Quitar del inventario.");
+                    System.out.println("6. Mostrar inventario.");
+                    System.out.println("7. Agregar producto al proveedor.");
+                    System.out.println("8. Quitar producto al proveedor.");
+                    System.out.println("9. Mostrar productos del proveedor.");
+                    System.out.println("10. Agregar alimento, medicina o equipamiento.");
+                    System.out.println("11. Quitar alimento, medicina o equipamiento.");
+                    System.out.println("12. Mostrar alimento, medicina o equipamiento.");
                     int opcionRecursos = scanner.nextInt();
                     scanner.nextLine();
-
                     switch (opcionRecursos) {
                         case 1:
-                            agregarRecurso();
+                            System.out.println("Ingrese el nombre del item:");
+                            String nombreItem = scanner.nextLine();
+                            System.out.println("Ingrese la cantidad del item:");
+                            int cantidadItem = scanner.nextInt();
+                            scanner.nextLine(); // consume the newline
+                            manejoRecursos.agregarAlPedido(nombreItem, cantidadItem);
                             break;
                         case 2:
-                            quitarRecurso();
+                            System.out.println("Ingrese el nombre del item:");
+                            nombreItem = scanner.nextLine();
+                            manejoRecursos.quitarDelPedido(nombreItem);
                             break;
                         case 3:
-                            mirarPedido();
+                            manejoRecursos.mostrarPedido();
                             break;
                         case 4:
-                            mirarInventarioZoologico();
+                            System.out.println("Ingrese el nombre del item:");
+                            nombreItem = scanner.nextLine();
+                            System.out.println("Ingrese la cantidad del item:");
+                            cantidadItem = scanner.nextInt();
+                            scanner.nextLine(); // consume the newline
+                            manejoRecursos.agregarAlInventario(nombreItem, cantidadItem);
                             break;
                         case 5:
-                            mirarProveedoresZoologico();
+                            System.out.println("Ingrese el nombre del item:");
+                            nombreItem = scanner.nextLine();
+                            manejoRecursos.quitarDelInventario(nombreItem, cantidadItem);
                             break;
                         case 6:
-
+                            manejoRecursos.mostrarInventario();
+                            break;
+                        case 7:
+                            System.out.println("Ingrese el nombre del producto:");
+                            String nombreProducto = scanner.nextLine();
+                            manejoRecursos.agregarProductoProveedor(nombreProducto);
+                            break;
+                        case 8:
+                            System.out.println("Ingrese el nombre del producto:");
+                            nombreProducto = scanner.nextLine();
+                            manejoRecursos.quitarProductoProveedor(nombreProducto);
+                            break;
+                        case 9:
+                            manejoRecursos.mostrarProductosProveedor();
+                            break;
+                        case 10:
+                            System.out.println("Ingrese el nombre del recurso:");
+                            String nombreRecurso = scanner.nextLine();
+                            System.out.println("Ingrese la cantidad del recurso:");
+                            int cantidadRecurso = scanner.nextInt();
+                            scanner.nextLine(); // consume the newline
+                            manejoRecursos.agregarAlInventario(nombreRecurso, cantidadRecurso);
+                            break;
+                        case 11:
+                            System.out.println("Ingrese el nombre del recurso:");
+                            nombreRecurso = scanner.nextLine();
+                            manejoRecursos.quitarDelInventario(nombreRecurso, cantidadRecurso);
+                            break;
+                        case 12:
+                            manejoRecursos.mostrarInventario();
                             break;
                         default:
                             System.out.println("Opción no válida.");
                             break;
-                    break;
+                    }
                 case 4:
-                    // Código para mantenimiento y seguridad
+                    Mantenimiento mantenimiento = new Mantenimiento();
+                    Seguridad seguridad = new Seguridad();
+                    System.out.println("Bienvenido a Mantenimiento y Seguridad, escoja una opción: ");
+                    System.out.println("1. Programar mantenimiento.");
+                    System.out.println("2. Marcar mantenimiento como completado.");
+                    System.out.println("3. Mostrar tareas de mantenimiento.");
+                    System.out.println("4. Registrar evento de seguridad.");
+                    System.out.println("5. Mostrar eventos de seguridad.");
+                    int opcionMantenimientoSeguridad = scanner.nextInt();
+                    scanner.nextLine();
+                    switch (opcionMantenimientoSeguridad) {
+                        case 1:
+                            System.out.println("Ingrese la descripción de la tarea:");
+                            String descripcion = scanner.nextLine();
+                            System.out.println("Ingrese la fecha de la tarea:");
+                            String fecha = scanner.nextLine();
+                            mantenimiento.agregarTarea(new Tarea(descripcion, fecha));
+                            break;
+                        case 2:
+                            System.out.println("Ingrese la descripción de la tarea completada:");
+                            descripcion = scanner.nextLine();
+                            mantenimiento.completarTarea(descripcion);
+                            break;
+                        case 3:
+                            mantenimiento.mostrarTareas();
+                            break;
+                        case 4:
+                            System.out.println("Ingrese la descripción del evento de seguridad:");
+                            descripcion = scanner.nextLine();
+                            System.out.println("Ingrese la ubicación del evento:");
+                            String ubicacion = scanner.nextLine();
+                            System.out.println("Ingrese la hora del evento:");
+                            String hora = scanner.nextLine();
+                            seguridad.agregarEvento(new Eventos(descripcion, ubicacion, hora));
+                            break;
+                        case 5:
+                            seguridad.mostrarEventos();
+                            break;
+                        default:
+                            System.out.println("Opción no válida.");
+                            break;
+                    }
                     break;
                 case 5:
                     System.out.println("Gracias por visitar el zoologico");
