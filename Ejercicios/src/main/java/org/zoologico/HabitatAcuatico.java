@@ -1,6 +1,7 @@
 package org.zoologico;
 
 public class HabitatAcuatico extends Habitat {
+
     private int nivelAgua;
 
     public HabitatAcuatico() {

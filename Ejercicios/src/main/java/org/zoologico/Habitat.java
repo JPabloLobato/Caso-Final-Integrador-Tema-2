@@ -1,16 +1,28 @@
 package org.zoologico;
 
 public class Habitat {
+    protected double temperatura;
+    protected double humedad;
+    protected boolean limpio;
     private String tipo;
-    private double temperatura;
-    private double humedad;
-    private boolean limpio;
 
     public Habitat(String tipo) {
         this.tipo = tipo;
         this.temperatura = 0;
         this.humedad = 0;
         this.limpio = true;
+    }
+
+    public void setTemperatura(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public void setHumedad(double humedad) {
+        this.humedad = humedad;
+    }
+
+    public void setLimpio(boolean limpio) {
+        this.limpio = limpio;
     }
 
     public void monitorear() {
@@ -20,4 +32,3 @@ public class Habitat {
         System.out.println("Limpieza: " + (limpio ? "Limpio" : "Sucio"));
     }
 }
-
