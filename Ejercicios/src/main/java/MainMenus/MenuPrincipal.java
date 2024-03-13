@@ -1,7 +1,5 @@
 package MainMenus;
 import java.util.Scanner;
-import MainMenus.MenuTrabajador;
-import MainMenus.MenuVisitante;
 public class MenuPrincipal {
     //menu principal, que lleva a los menus trabajador o visitante
     public static void main (String[] args) {

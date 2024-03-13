@@ -4,6 +4,10 @@ import org.zoologico.Habitat;
 import org.zoologico.HabitatAcuatico;
 import org.zoologico.HabitatAviario;
 import org.zoologico.HabitatTerrestre;
+import org.zoologico.Animales;
+import org.zoologico.Leon;
+import org.zoologico.Elefante;
+import org.zoologico.Tigre;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,11 +20,15 @@ public class MenuTrabajador {
         habitats.put("Acuatico", new HabitatAcuatico());
         habitats.put("Aviario", new HabitatAviario());
         habitats.put("Terrestre", new HabitatTerrestre());
+        Map<String, Animales> animales = new HashMap<>();
+        animales.put("Simba", new Leon("Simba", "Grande"));
+        animales.put("Lucas", new Elefante("Lucas", 5000));
+        animales.put("Polo", new Tigre("Polo", "1"));
 
         while (true) {
             System.out.println("Bienvenido al Zoologico, escoja una opcion: ");
             System.out.println("1. Ir a un habitat");
-            System.out.println("2. Monitoreo de animales");
+            System.out.println("2. Cuidado de los animales");
             System.out.println("3. Recursos zoológico");
             System.out.println("4. Mantenimiento y Seguridad");
             System.out.println("5. Salir");
@@ -86,7 +94,51 @@ public class MenuTrabajador {
                     }
                     break;
                 case 2:
-                    // Código para monitoreo de animales
+                    System.out.println("Has seleccionado Animales. Por favor, elige una opción:");
+                    System.out.println("a. Registrar alimentación, comportamiento y salud");
+                    System.out.println("b. Monitoreo de animales");
+
+                    String opcionAnimales = scanner.nextLine();
+
+                    switch (opcionAnimales) {
+                        case "a":
+                            System.out.println("Ingrese el nombre del animal (escriba Simba, Lucas, Polo):");
+                            String nombreAnimal = scanner.nextLine();
+                            Animales animalSeleccionado = animales.get(nombreAnimal);
+
+                            if (animalSeleccionado != null) {
+                                System.out.println("Ingrese el estado de alimentación:");
+                                String alimentacion = scanner.nextLine();
+                                animalSeleccionado.registrarAlimentacion(alimentacion);
+
+                                System.out.println("Ingrese el estado de salud:");
+                                String salud = scanner.nextLine();
+                                animalSeleccionado.registrarSalud(salud);
+
+                                System.out.println("Ingrese el estado de comportamiento:");
+                                String comportamiento = scanner.nextLine();
+                                animalSeleccionado.registrarComportamiento(comportamiento);
+                            } else {
+                                System.out.println("Animal no encontrado");
+                            }
+                            break;
+                        case "b":
+                            System.out.println("Ingrese el nombre del animal:");
+                            nombreAnimal = scanner.nextLine();
+                            animalSeleccionado = animales.get(nombreAnimal);
+
+                            if (animalSeleccionado != null) {
+                                System.out.println("Estado de alimentación: " + animalSeleccionado.getEstadoAlimentacion());
+                                System.out.println("Estado de salud: " + animalSeleccionado.getEstadoSalud());
+                                System.out.println("Estado de comportamiento: " + animalSeleccionado.getEstadoComportamiento());
+                            } else {
+                                System.out.println("Animal no encontrado");
+                            }
+                            break;
+                        default:
+                            System.out.println("Opción no válida");
+                            break;
+                    }
                     break;
                 case 3:
                     // Código para recursos zoológico
